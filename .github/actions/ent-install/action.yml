@@ -1,0 +1,14 @@
+name: 'Install the Entando CLI'
+description: 'Install the CLI and run the check-env command'
+runs:
+  using: 'composite'
+  steps:
+    - name: Install ENT CLI
+      shell: bash
+      run: |
+        curl -L https://get.entando.org/cli | bash
+    - name: ENT Check-env
+      shell: bash
+      run: |
+        source "$HOME/.entando/activate"
+        ent check-env develop
